@@ -8,12 +8,14 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>PharmaMate</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('images/medical-book.png') }}" />
     <link rel="icon" type="image/png" href="{{ asset('images/medical-book.png') }}" />
+
+
 
     @vite(['resources/js/app.js'])
 
@@ -21,10 +23,8 @@
     @stack('scripts')
 </head>
 
-<body>
-    <div id="app">
-        @yield('content')
-    </div>
+<body class="g-sidenav-show bg-gray-100">
+    @yield('content')
 </body>
 
 </html>

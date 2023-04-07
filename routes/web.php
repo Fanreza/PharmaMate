@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +22,7 @@ Auth::routes(['register' => false]);
 
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
+    Route::resource('users', UserController::class);
 });
 
 Route::group(['middleware' => 'guest'], function () {
