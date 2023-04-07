@@ -2,7 +2,7 @@
 
 @section('dashboard-content')
     {{-- Form Create --}}
-    <form class="w-50" method="POST" action="{{ route('medicines.update', $medicine->id) }}">
+    <form class="w-lg-50" method="POST" action="{{ route('medicines.update', $medicine->id) }}">
         @csrf
         @method('PUT')
 
