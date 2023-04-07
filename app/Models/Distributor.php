@@ -14,4 +14,9 @@ class Distributor extends Model
         'address',
         'phone',
     ];
+
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class);
+    }
 }

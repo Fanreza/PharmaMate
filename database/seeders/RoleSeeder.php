@@ -21,11 +21,17 @@ class RoleSeeder extends Seeder
         $role = Role::create(['name' => 'Apoteker']);
         $permissions = Permission::where('name', 'like', '%user%')
             ->orWhere('name', 'like', '%medicine%')
+            ->orWhere('name', 'like', '%distributor%')
             ->pluck('id', 'id')->all();
         $role->syncPermissions($permissions);
 
 
-        Role::create(['name' => 'Gudang']);
+        $role = Role::create(['name' => 'Gudang']);
+        $permissions = Permission::where('name', 'like', '%purchase%')
+            ->pluck('id', 'id')->all();
+        $role->syncPermissions($permissions);
+
+
         Role::create(['name' => 'Kasir']);
         Role::create(['name' => 'Pemilik']);
     }

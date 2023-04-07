@@ -7,6 +7,15 @@ use Illuminate\Http\Request;
 
 class DistributorController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('permission:distributor-list|distributor-create|distributor-edit|distributor-delete', ['only' => ['index', 'show']]);
+        $this->middleware('permission:distributor-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:distributor-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:distributor-delete', ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      */

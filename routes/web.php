@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\DistributorController;
+use App\Http\Controllers\PurchaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', UserController::class);
     Route::resource('medicines', MedicineController::class);
     Route::resource('distributors', DistributorController::class);
+    Route::resource('purchases', PurchaseController::class);
 });
 
 Route::group(['middleware' => 'guest'], function () {
