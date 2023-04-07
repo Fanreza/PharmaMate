@@ -24,6 +24,14 @@ class RedirectIfAuthenticated
                 return redirect('/purchases');
                 break;
 
+            case 'Kasir':
+            return '/sales';
+            break; 
+
+            case 'Pemilik':
+            return '/medicines';
+            break; 
+
             default:
                 return redirect('/users'); 
                 break;

@@ -38,6 +38,10 @@ class PermissionSeeder extends Seeder
             'purchase-create',
             'purchase-edit',
             'purchase-delete',
+            'sale-list',
+            'sale-create',
+            'sale-edit',
+            'sale-delete',
         ];
 
         foreach ($permissions as $permission) {

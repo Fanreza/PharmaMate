@@ -4,9 +4,11 @@
     <div class="row">
         <div class="col-12">
             {{-- Button Create --}}
-            <div class="button-create">
-                <a href="{{ route('medicines.create') }}" class="btn btn-primary">Tambah Obat</a>
-            </div>
+            @can('medicine-create')
+                <div class="button-create">
+                    <a href="{{ route('medicines.create') }}" class="btn btn-primary">Tambah Obat</a>
+                </div>
+            @endcan
 
 
             <div class="card mb-4">
@@ -35,19 +37,24 @@
                                         <td class="py-3 px-4 text-sm">{{ $data->quantity }}</td>
                                         <td class="py-3 px-4 text-sm">{{ $data->price }}</td>
                                         <td class="py-3 px-4">
-                                            <a href="{{ route('medicines.edit', $data->id) }}"
-                                                class="btn btn-info text-white font-weight-bold text-xs"
-                                                data-toggle="tooltip" data-original-title="Edit user">Edit</a>
+
+                                            @can('medicine-edit')
+                                                <a href="{{ route('medicines.edit', $data->id) }}"
+                                                    class="btn btn-info text-white font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">Edit</a>
+                                            @endcan
 
                                             {{-- delete --}}
-                                            <form action="{{ route('medicines.destroy', $data->id) }}" method="POST"
-                                                class="d-inline">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit"
-                                                    class="btn btn-danger text-white font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Delete user">Delete</button>
-                                            </form>
+                                            @can('medicine-delete')
+                                                <form action="{{ route('medicines.destroy', $data->id) }}" method="POST"
+                                                    class="d-inline">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"
+                                                        class="btn btn-danger text-white font-weight-bold text-xs"
+                                                        data-toggle="tooltip" data-original-title="Delete user">Delete</button>
+                                                </form>
+                                            @endcan
                                         </td>
                                     </tr>
                                 @endforeach

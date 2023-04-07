@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
                 MedicineSeeder::class,
                 DistributorSeeder::class,
                 PurchaseSeeder::class,
+                SaleSeeder::class,
             ]
         );
     }

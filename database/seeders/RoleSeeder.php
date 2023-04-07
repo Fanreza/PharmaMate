@@ -25,14 +25,23 @@ class RoleSeeder extends Seeder
             ->pluck('id', 'id')->all();
         $role->syncPermissions($permissions);
 
-
         $role = Role::create(['name' => 'Gudang']);
         $permissions = Permission::where('name', 'like', '%purchase%')
             ->pluck('id', 'id')->all();
         $role->syncPermissions($permissions);
 
 
-        Role::create(['name' => 'Kasir']);
-        Role::create(['name' => 'Pemilik']);
+        $role = Role::create(['name' => 'Kasir']);
+        $permissions = Permission::where('name', 'like', '%sale%')
+            ->pluck('id', 'id')->all();
+        $role->syncPermissions($permissions);
+
+        $role = Role::create(['name' => 'Pemilik']);
+        $permissions = Permission::where('name', 'like', '%medicine-list%')
+            ->orWhere('name', 'like', '%distributor-list%')
+            ->orWhere('name', 'like', '%purchase-list%')
+            ->orWhere('name', 'like', '%sale-list%')
+            ->pluck('id', 'id')->all();
+        $role->syncPermissions($permissions);
     }
 }

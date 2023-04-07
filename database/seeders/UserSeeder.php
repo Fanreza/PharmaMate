@@ -45,5 +45,25 @@ class UserSeeder extends Seeder
             ]);
 
         $user->assignRole('Gudang');
+
+        $user = User::create(
+            [
+                'name' => 'Kasir',
+                'email' => 'kasir@mail.test',
+                'password' => bcrypt('123qweasd'),
+                'status' => true,
+            ]);
+        
+        $user->assignRole('Kasir');
+
+        $user = User::create(
+            [
+                'name' => 'Pemilik',
+                'email' => 'pemilik@mail.test',
+                'password' => bcrypt('123qweasd'),
+                'status' => true,
+            ]);
+
+        $user->assignRole('Pemilik');
     }
 }

@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\DistributorController;
 use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\SaleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('medicines', MedicineController::class);
     Route::resource('distributors', DistributorController::class);
     Route::resource('purchases', PurchaseController::class);
+    Route::resource('sales', SaleController::class);
 });
 
 Route::group(['middleware' => 'guest'], function () {

@@ -83,9 +83,9 @@ class PurchaseController extends Controller
     public function edit(string $id)
     {
         $purchase = Purchase::findOrFail($id);
-        $distributor = Distributor::all();
+        $distributors = Distributor::all();
 
-        return view('purchases.edit', compact('purchase', 'distributor'));
+        return view('purchases.edit', compact('purchase', 'distributors'));
     }
 
     /**
@@ -96,9 +96,9 @@ class PurchaseController extends Controller
         $this->validate($request, [
             'distributor_id' => 'required:exists:distributors,id',
             'user_id' => 'required:exists:users,id',
-            'invoice' => 'required',
-            'date' => 'required:datetime',
-            'total' => 'required:numeric',
+            'receipt_number' => 'required',
+            'date_buy' => 'required:datetime',
+            'quantity_buy' => 'required:numeric',
         ]);
 
         try {
@@ -106,9 +106,9 @@ class PurchaseController extends Controller
             $purchase->update([
                 'distributor_id' => $request->distributor_id,
                 'user_id' => $request->user_id,
-                'invoice' => $request->invoice,
-                'date' => $request->date,
-                'total' => $request->total,
+                'receipt_number' => $request->receipt_number,
+                'date_buy' => $request->date_buy,
+                'quantity_buy' => $request->quantity_buy,
             ]);
 
             return redirect()->route('purchases.index')->with('success', 'Pembelian berhasil diubah');

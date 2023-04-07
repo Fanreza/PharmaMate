@@ -33,6 +33,14 @@ class LoginController extends Controller
             case 'Gudang':
             return '/purchases';
             break;
+            
+            case 'Kasir':
+            return '/sales';
+            break; 
+
+            case 'Pemilik':
+            return '/medicines';
+            break;
 
             default:
             return '/users'; 
