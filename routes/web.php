@@ -1,9 +1,12 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MedicineController;
+use App\Http\Controllers\DistributorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +26,8 @@ Auth::routes(['register' => false]);
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', UserController::class);
+    Route::resource('medicines', MedicineController::class);
+    Route::resource('distributors', DistributorController::class);
 });
 
 Route::group(['middleware' => 'guest'], function () {

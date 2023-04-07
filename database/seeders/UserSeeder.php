@@ -23,5 +23,16 @@ class UserSeeder extends Seeder
         );
 
         $user->assignRole('Superadmin');
+
+        $user = User::create(
+            [
+                'name' => 'Apoteker',
+                'email' => 'apoteker@mail.test',
+                'password' => bcrypt('123qweasd'),
+                'status' => true,
+            ]
+        );
+
+        $user->assignRole('Apoteker');
     }
 }

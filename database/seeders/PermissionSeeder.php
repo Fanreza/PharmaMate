@@ -26,6 +26,14 @@ class PermissionSeeder extends Seeder
             'permission-create',
             'permission-edit',
             'permission-delete',
+            'medicine-list',
+            'medicine-create',
+            'medicine-edit',
+            'medicine-delete',
+            'distributor-list',
+            'distributor-create',
+            'distributor-edit',
+            'distributor-delete',
         ];
 
         foreach ($permissions as $permission) {

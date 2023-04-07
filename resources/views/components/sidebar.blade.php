@@ -11,24 +11,42 @@
     <hr class="horizontal dark mt-0" />
     <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link active" href="{{ url('/users') }}">
-                    <div
-                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <iconify-icon icon="mdi:user"></iconify-icon>
-                    </div>
-                    <span class="nav-link-text ms-1">User</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../pages/tables.html">
-                    <div
-                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <iconify-icon icon="mdi:medicine-bottle"></iconify-icon>
-                    </div>
-                    <span class="nav-link-text ms-1">Obat</span>
-                </a>
-            </li>
+            @can('user-list')
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->is('users') ? 'active' : '' }}" href="{{ url('/users') }}">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <iconify-icon icon="mdi:user"></iconify-icon>
+                        </div>
+                        <span class="nav-link-text ms-1">User</span>
+                    </a>
+                </li>
+            @endcan
+
+            @can('medicine-list')
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->is('medicines') ? 'active' : '' }}" href="{{ url('/medicines') }}">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <iconify-icon icon="mdi:medical-bag"></iconify-icon>
+                        </div>
+                        <span class="nav-link-text ms-1">Medicine</span>
+                    </a>
+                </li>
+            @endcan
+
+            @can('distributor-list')
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->is('distributors') ? 'active' : '' }}"
+                        href="{{ url('/distributors') }}">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <iconify-icon icon="mdi:medical-bag"></iconify-icon>
+                        </div>
+                        <span class="nav-link-text ms-1">Distributor</span>
+                    </a>
+                </li>
+            @endcan
         </ul>
     </div>
     <div class="sidenav-footer mx-3 position-absolute bottom-0 start-0 end-0">
